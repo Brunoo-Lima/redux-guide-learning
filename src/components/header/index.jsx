@@ -1,28 +1,26 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from 'react';
 
 // Components
-import Cart from "../cart/index";
+import Cart from '../cart/index';
 
 // Styles
-import * as Styles from "./styles";
+import * as Styles from './styles';
 
-// Utilities
-import { loginUser, logoutUser } from "../../redux/user/actions";
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser, logoutUser } from './../../redux/user/actions';
 
 function Header() {
   const [cartIsVisible, setCartIsVisible] = useState(false);
 
+  const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
   const dispatch = useDispatch();
-
-  const { currentUser } = useSelector((state) => state.userReducer);
 
   const handleCartClick = () => {
     setCartIsVisible(true);
   };
 
   const handleLoginClick = () => {
-    dispatch(loginUser({ name: "Felipe Rocha", email: "felipe@rocha.com" }));
+    dispatch(loginUser({ name: 'Bruno', email: 'bruno@gmail.com' }));
   };
 
   const handleLogoutClick = () => {
@@ -38,7 +36,6 @@ function Header() {
         ) : (
           <div onClick={handleLoginClick}>Login</div>
         )}
-
         <div onClick={handleCartClick}>Carrinho</div>
       </Styles.Buttons>
 
