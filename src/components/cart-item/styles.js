@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CartItemContainer = styled.div`
   display: flex;
@@ -6,6 +6,10 @@ export const CartItemContainer = styled.div`
   margin-bottom: 15px;
 
   p {
+    color: #222222;
+  }
+
+  svg {
     color: #222222;
   }
 `;
